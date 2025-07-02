@@ -1,11 +1,5 @@
 function App() {
-  return (
-    <>
-      <div>
-        <h1>App</h1>
-      </div>
-    </>
-  );
+  return <h1>React Tic-Tac-Toe</h1>;
 }
 
 export default App;
