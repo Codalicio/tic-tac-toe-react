@@ -1,20 +1,21 @@
 import { useState } from "react";
 
-const Player = ({ name, symbol }) => {
+const Player = ({ initialName, symbol }) => {
   const [isEditing, setIsEditing] = useState(false);
+  const [playerName, setPlayerName] = useState(initialName);
 
   function handleEditClick() {
     setIsEditing((prevState) => !prevState);
   }
 
-  let playerName = <span className="player-name">{name}</span>;
+  let editablePlayerName = <span className="player-name">{initialName}</span>;
   if (isEditing) {
-    playerName = (
+    editablePlayerName = (
       <input
         type="text"
         name="playerName"
         id="playerName"
-        value={name}
+        value={initialName}
         required
       />
     );
@@ -23,7 +24,7 @@ const Player = ({ name, symbol }) => {
   return (
     <li>
       <span className="player">
-        {playerName}
+        {editablePlayerName}
         <span className="player-symbol">{symbol}</span>
       </span>
       <button onClick={handleEditClick}>{isEditing ? "Save" : "Edit"}</button>
