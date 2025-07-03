@@ -8,14 +8,19 @@ const Player = ({ initialName, symbol }) => {
     setIsEditing((prevState) => !prevState);
   }
 
-  let editablePlayerName = <span className="player-name">{initialName}</span>;
+  function handleChange(event) {
+    setPlayerName(event.target.value);
+  }
+
+  let editablePlayerName = <span className="player-name">{playerName}</span>;
   if (isEditing) {
     editablePlayerName = (
       <input
         type="text"
         name="playerName"
         id="playerName"
-        value={initialName}
+        value={playerName}
+        onChange={handleChange}
         required
       />
     );
