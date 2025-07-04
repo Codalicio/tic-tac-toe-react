@@ -1,8 +1,12 @@
-const Log = () => {
+const Log = ({ turns }) => {
   return (
-    <>
-      <h1 style={{ textAlign: "center" }}>Hello</h1>
-    </>
+    <ol id="log">
+      {turns.map((turn) => (
+        <li key={`${turn.square.row}${turn.square.col}`}>
+          {turn.player} selected {turn.square.row}, {turn.square.col}
+        </li>
+      ))}
+    </ol>
   );
 };
 
