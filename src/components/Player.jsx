@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Player = ({ initialName, symbol, isActive, onNameChange }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [playerName, setPlayerName] = useState(initialName);
+
+  useEffect(() => {
+    setPlayerName(initialName);
+  }, [initialName]);
 
   function handleEditClick() {
     setIsEditing((prevState) => !prevState);
